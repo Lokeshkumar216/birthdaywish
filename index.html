@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Queen 👑</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background: radial-gradient(circle at top, #1a1a1a, #000000 70%);
+    font-family: 'Poppins', sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:#d4af37;
+}
+
+/* Luxury Card */
+.card{
+    width:90%;
+    max-width:850px;
+    padding:50px;
+    border-radius:20px;
+    background: rgba(20,20,20,0.9);
+    box-shadow: 0 0 40px rgba(212,175,55,0.4);
+    text-align:center;
+    border:1px solid rgba(212,175,55,0.5);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.card img{
+    width:230px;
+    height:230px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #d4af37;
+    box-shadow: 0 0 30px #d4af37;
+    margin-bottom:25px;
+    transition:0.6s;
+}
+
+.card img:hover{
+    transform:scale(1.08);
+    box-shadow: 0 0 50px #ffd700;
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    font-size:42px;
+    margin-bottom:20px;
+    letter-spacing:2px;
+}
+
+.message{
+    font-size:18px;
+    line-height:1.8;
+    color:#f5e6c8;
+    margin-bottom:30px;
+}
+
+button{
+    padding:15px 35px;
+    background: transparent;
+    border:2px solid #d4af37;
+    color:#d4af37;
+    font-size:16px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+button:hover{
+    background:#d4af37;
+    color:black;
+    box-shadow:0 0 20px #ffd700;
+}
+
+/* Sparkles */
+.sparkle{
+    position:absolute;
+    color:#ffd700;
+    font-size:18px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float{
+    0%{ transform:translateY(100vh); opacity:1;}
+    100%{ transform:translateY(-10vh); opacity:0;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* 💌 Love Letter Popup */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    visibility:hidden;
+    opacity:0;
+    transition:0.4s;
+}
+
+.popup.active{
+    visibility:visible;
+    opacity:1;
+}
+
+.popup-content{
+    background:#111;
+    padding:40px;
+    width:90%;
+    max-width:600px;
+    border-radius:15px;
+    border:1px solid #d4af37;
+    box-shadow:0 0 40px rgba(212,175,55,0.6);
+    text-align:center;
+    transform:scale(0.7);
+    transition:0.4s;
+}
+
+.popup.active .popup-content{
+    transform:scale(1);
+}
+
+.popup-content h2{
+    font-family: 'Playfair Display', serif;
+    margin-bottom:20px;
+}
+
+.popup-content p{
+    color:#f5e6c8;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.close-btn{
+    background:#d4af37;
+    color:black;
+    border:none;
+    padding:10px 25px;
+    border-radius:20px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <img src="her.jpeg" alt="My Queen">
+    <h1>Happy Birthday My Queen 👑</h1>
+
+    <div class="message">
+        In this world full of ordinary things, you are my rarest treasure.  
+        Your presence makes my life royal and complete.  
+        Happy Birthday, my forever love. 🖤✨
+    </div>
+
+    <button onclick="openLetter()">Open My Heart 💌</button>
+</div>
+
+<!-- 💌 Love Letter Popup -->
+<div class="popup" id="lovePopup">
+    <div class="popup-content">
+        <h2>My Love Letter To You 💖</h2>
+        <p>
+            My Queen,  
+            From the moment you came into my life, everything changed.  
+            You made my world brighter, my heart stronger, and my soul happier.  
+            I promise to always respect you, support you, and stand beside you.  
+            You are my greatest blessing and my forever love. 🖤✨
+        </p>
+        <button class="close-btn" onclick="closeLetter()">Close 💕</button>
+    </div>
+</div>
+
+<script>
+
+function openLetter(){
+    document.getElementById("lovePopup").classList.add("active");
+}
+
+function closeLetter(){
+    document.getElementById("lovePopup").classList.remove("active");
+}
+
+/* Sparkle Effect */
+function createSparkle(){
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.innerHTML = "✦";
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.fontSize = Math.random() * 15 + 10 + "px";
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+        sparkle.remove();
+    }, 6000);
+}
+
+setInterval(createSparkle, 300);
+
+</script>
+
+</body>
+</html>
